@@ -1,7 +1,6 @@
 import typing
 
 # Li-Chao-Tree
-
 class LiChaoTree:
 	def __init__(self, x_list: list, INF: int = 10 ** 18) -> None:
 		x_list = sorted(list(set(x_list)))

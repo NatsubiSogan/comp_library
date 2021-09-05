@@ -1,5 +1,4 @@
 # Bitwise Or Convolution
-
 class BitwiseOrConvolution:
 	def __init__(self, mod: int = 9888244353) -> None:
 		self.mod = mod

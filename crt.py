@@ -1,7 +1,6 @@
 import typing
 
 # 中国剰余定理
-
 def invgcd(a: int, b: int) -> typing.Tuple[int, int]:
 	a %= b
 	if a == 0: return (b, 0)

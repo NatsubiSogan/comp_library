@@ -1,12 +1,12 @@
 # 重み付きUnion-Find
 class WeightedUnionFind:
-	def __init__(self, n):
+	def __init__(self, n: int) -> None:
 		self.n = n
 		self.par = list(range(n))
 		self.rank = [0] * n
 		self.weight = [0] * n
 
-	def find(self, x):
+	def find(self, x: int) -> int:
 		if self.par[x] == x:
 			return x
 		else:
@@ -15,7 +15,7 @@ class WeightedUnionFind:
 			self.par[x] = y
 			return y
 
-	def unite(self, x, y, w):
+	def unite(self, x: int, y: int, w: int) -> None:
 		p, q = self.find(x), self.find(y)
 		if self.rank[p] < self.rank[q]:
 			self.par[p] = q
@@ -26,8 +26,8 @@ class WeightedUnionFind:
 			if self.rank[p] == self.rank[q]:
 				self.rank[p] += 1
 
-	def same(self, x, y):
+	def same(self, x: int, y: int) -> bool:
 		return self.find(x) == self.find(y)
 
-	def diff(self, x, y):
+	def diff(self, x: int, y: int) -> int:
 		return self.weight[x] - self.weight[y]

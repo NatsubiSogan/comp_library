@@ -1,3 +1,5 @@
+import typing
+
 # 永続配列
 class PersistentArrayNode:
 	def __init__(self, log: int) -> None:

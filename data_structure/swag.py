@@ -39,5 +39,5 @@ class SlidingWindowAggretgation:
 			if res is None:
 				res = self.back_stack[-1][1]
 			else:
-					res = self.op(res, self.back_stack[-1][1])
+				res = self.op(res, self.back_stack[-1][1])
 		return res

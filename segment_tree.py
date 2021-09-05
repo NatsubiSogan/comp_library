@@ -2,7 +2,11 @@ import typing
 
 # Segment Tree
 class SegmentTree:
-	def __init__(self, lis: list, ele: typing.Any, op: typing.Callable[[typing.Any, typing.Any], typing.Any]) -> None:
+	def __init__(
+			self, 
+			lis: list, 
+			ele: typing.Any, 
+			op: typing.Callable[[typing.Any, typing.Any], typing.Any]) -> None:
 		self.n = len(lis)
 		self.log = (self.n - 1).bit_length()
 		self.size = 1 << self.log
@@ -27,7 +31,7 @@ class SegmentTree:
 		for i in range(1, self.log + 1):
 			self.tree[p >> i] = self.op(self.tree[2 * (p >> i)], self.tree[2 * (p >> i) + 1])
 
-	def prod(self, l: int, r: int) -> int:
+	def prod(self, l: int, r: int) -> typing.Any:
 		l += self.size
 		r += self.size
 		L = R = self.ele
@@ -42,7 +46,7 @@ class SegmentTree:
 			r >>= 1
 		return self.op(L, R)
 
-	def all_prod(self) -> int:
+	def all_prod(self) -> typing.Any:
 		return self.tree[1]
 
 	def max_right(self, l: int, f) -> int:

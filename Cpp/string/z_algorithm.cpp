@@ -2,7 +2,6 @@
 #include <vector>
 
 std::vector<int> z_algorithm(const std::string& s) {
-	int len = (int)s.size();
 	std::vector<int> res(s.size());
 	res[0] = s.size();
 	int i = 1, j = 0;

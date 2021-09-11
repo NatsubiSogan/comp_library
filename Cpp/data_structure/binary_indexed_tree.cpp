@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 struct binary_indexed_tree {
 	public:
@@ -11,6 +12,7 @@ struct binary_indexed_tree {
 		}
 
 		void add(int i, long long x) {
+			assert(0 <= i && i < n);
 			i += 1;
 			while (i <= n) {
 				bit_list[i] += x;
@@ -19,16 +21,8 @@ struct binary_indexed_tree {
 		}
 
 		long long sum(int l, int r) {
+			assert(0 <= l && l <= r && r <= n);
 			return _sum(r) - _sum(l);
-		}
-
-		long long _sum(int i) {
-			long long res = 0;
-			while (i > 0) {
-				res += (long long) bit_list[i];
-				i -= i & -i;
-			}
-			return res;
 		}
 
 		int binary_search(long long x) {
@@ -50,4 +44,12 @@ struct binary_indexed_tree {
 	private:
 		int n;
 		std::vector<long long> bit_list;
+		long long _sum(int i) {
+			long long res = 0;
+			while (i > 0) {
+				res += (long long) bit_list[i];
+				i -= i & -i;
+			}
+			return res;
+		}
 };

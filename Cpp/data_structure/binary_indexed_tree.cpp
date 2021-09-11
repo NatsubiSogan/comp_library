@@ -13,7 +13,7 @@ struct binary_indexed_tree {
 
 		void add(int i, long long x) {
 			assert(0 <= i && i < n);
-			i += 1;
+			i++;
 			while (i <= n) {
 				bit_list[i] += x;
 				i += i & -i;

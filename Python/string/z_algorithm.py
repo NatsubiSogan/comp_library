@@ -2,7 +2,7 @@
 def z_algorithm(s: str) -> list:
 	str_len = len(s)
 	res = [0] * str_len
-	res[str_len - 1] = str_len
+	res[0] = str_len
 	i, j = 1, 0
 	while i < str_len:
 		while i + j < str_len and s[i + j] == s[j]:
